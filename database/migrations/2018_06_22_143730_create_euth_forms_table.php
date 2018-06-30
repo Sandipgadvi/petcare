@@ -25,6 +25,7 @@ class CreateEuthFormsTable extends Migration
             $table->string('ethu_sex');
             $table->string('ethu_color');
             $table->string('ethu_case_no');
+            $table->text('note');
             $table->string('agree');
             $table->timestamps();
         });

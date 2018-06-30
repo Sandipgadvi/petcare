@@ -30,6 +30,7 @@ class CreateConsentFormsTable extends Migration
             $table->text('consent_specify_complaints');
             $table->text('consent_condition');
             $table->text('consent_medication');
+            $table->text('note');
             $table->string('agree');
             $table->timestamps();
         });
