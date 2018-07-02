@@ -8,7 +8,11 @@ use App\ConsentForm;
 
 use App\EuthForm;
 
+use App\Contact;
+
 use Excel;
+
+use Illuminate\Support\Facades\Input;
 
 
 class ExportController extends Controller
@@ -48,4 +52,41 @@ class ExportController extends Controller
 
         return $el;
     }
+
+  public function import(Request $request){
+
+     $file = $request->file('file');
+     $result = Excel::load($file, function($reader){
+        $reader->each(function($sheet){
+              ConsentForm::firstOrCreate($sheet->toArray());
+        });
+     } );
+   return back();
+  }
+
+  public function importeuth(Request $request){
+
+    $file = $request->file('file');
+    $result = Excel::load($file, function($reader){
+       $reader->each(function($sheet){
+             EuthForm::firstOrCreate($sheet->toArray());
+       });
+    } );
+  return back();
+ }
+
+
+ public function importcontact(Request $request){
+
+    $file = $request->file('file');
+    $result = Excel::load($file, function($reader){
+       $reader->each(function($sheet){
+             Contact::firstOrCreate($sheet->toArray());
+       });
+    } );
+  return back();
+ }
+
+
 }
+

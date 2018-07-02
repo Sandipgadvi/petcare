@@ -20,6 +20,58 @@
         <a href="{{route('euth',['type'=>'xls'])}}" class="btn btn-info">Euth xls</a>
         <a href="{{route('euth',['type'=>'csv'])}}" class="btn btn-info">Euth csv</a>
         <a href="{{route('euth',['type'=>'xlsm'])}}" class="btn btn-info">Euth xlsm</a>
+        <div class="upload">
+          <hr>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal">upload all</button>
+          <div class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Consent Form</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form action="{{route('import')}}" method="post" enctype="multipart/form-data">
+                        {{csrf_field()}}
+                  <div class="form-group">
+
+                    <label for="">Upload File</label>
+                    <input type="file" class="form-control-file" name="file" id="file" placeholder="" required aria-describedby="fileHelpId">
+                    <input type="submit" value="Import" class="btn btn-success">    
+                </div>
+                </form>
+                <hr>
+                <h4>Euth form</h4>
+                <form action="{{route('importeuth')}}" method="post" enctype="multipart/form-data">
+                    {{csrf_field()}}
+              <div class="form-group">
+
+                <label for="">Upload File</label>
+                <input type="file" class="form-control-file" name="file" id="file" placeholder="" required aria-describedby="fileHelpId">
+                <input type="submit" value="Import" class="btn btn-success">    
+            </div>
+            </form>
+            <hr>
+            <h4>Contact form</h4>
+            <form action="{{route('importcontact')}}" method="post" enctype="multipart/form-data">
+                {{csrf_field()}}
+          <div class="form-group">
+
+            <label for="">Upload File</label>
+            <input type="file" class="form-control-file" name="file" id="file" placeholder="" required aria-describedby="fileHelpId">
+            <input type="submit" value="Import" class="btn btn-success">    
+        </div>
+        </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+        </div>
     </div>
 
     </div>

@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 Route::post('sendsms','ContactController@sendsms')->name('sendsms')->middleware('auth');
+Route::post('import','ExportController@import')->name('import')->middleware('auth');
+Route::post('importeuth','ExportController@importeuth')->name('importeuth')->middleware('auth');
+Route::post('importcntact','ExportController@importcontact')->name('importcontact')->middleware('auth');
 
 Route::get('consent/{type}','ExportController@export')->name('consent')->middleware('auth');
 Route::get('export/{type}','ExportController@exporteuth')->name('euth')->middleware('auth');
